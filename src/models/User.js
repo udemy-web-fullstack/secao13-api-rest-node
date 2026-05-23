@@ -1,5 +1,5 @@
 import bcryptjs from 'bcryptjs';
-import { Model, Sequelize } from 'sequelize';
+import Sequelize, { Model } from 'sequelize';
 
 export default class User extends Model {
   static init(sequelize) {
@@ -55,5 +55,9 @@ export default class User extends Model {
     });
 
     return this;
+  }
+
+  async passwordIsValid(password) {
+    return await bcryptjs.compare(password, this.password_hash);
   }
 }
