@@ -66,6 +66,8 @@ export default class Aluno extends Model {
       },
       {
         sequelize,
+        freezeTableName: true,
+        tableName: 'aluno',
       },
     );
     return this;
