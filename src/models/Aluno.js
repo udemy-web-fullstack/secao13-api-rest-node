@@ -67,9 +67,13 @@ export default class Aluno extends Model {
       {
         sequelize,
         freezeTableName: true,
-        tableName: 'aluno',
+        tableName: 'alunos',
       },
     );
     return this;
+  }
+
+  static associate(models) {
+    this.hasMany(models.Foto, { foreignKey: 'aluno_id' });
   }
 }

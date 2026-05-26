@@ -1,4 +1,6 @@
 import dotenv from 'dotenv';
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -12,6 +14,9 @@ import homeRoutes from './routes/homeRoutes.js';
 import tokenRoutes from './routes/tokenRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 class App {
   constructor() {
     this.app = express();
@@ -22,6 +27,11 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
+
+    this.app.use(
+      '/images/',
+      express.static(resolve(__dirname, '..', 'uploads', 'images')),
+    );
   }
 
   routes() {

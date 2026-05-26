@@ -21,7 +21,7 @@ class FotoController {
         return res.json(foto);
       } catch (e) {
         return res.status(400).json({
-          errors: ['Não foi possível salvar a foto no banco de dados.'],
+          errors: ['Aluno não existe.'],
         });
       }
     });
