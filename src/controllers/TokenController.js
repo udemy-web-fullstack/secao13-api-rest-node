@@ -27,7 +27,6 @@ class TokenController {
       }
 
       const { id } = user;
-
       const token = jwt.sign(
         { id, email },
         process.env.TOKEN_SECURITY || 'SECRET_RESERVA',
@@ -36,7 +35,7 @@ class TokenController {
         },
       );
 
-      return res.json({ token });
+      return res.json({ token, user: user.nome, id, email });
     } catch (e) {
       console.log('Erro interno no TokenController:', e.message);
       return res.status(400).json({
@@ -45,5 +44,4 @@ class TokenController {
     }
   }
 }
-
 export default new TokenController();
