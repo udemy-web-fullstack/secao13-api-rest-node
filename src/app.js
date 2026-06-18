@@ -16,7 +16,11 @@ import homeRoutes from './routes/homeRoutes.js';
 import tokenRoutes from './routes/tokenRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
-const whiteList = ['http://api.magnovgomes.me', 'http://localhost:3000'];
+const whiteList = [
+  'http://api.magnovgomes.me',
+  'http://localhost:3000',
+  'http://localhost:5173',
+];
 
 const corsOptions = {
   origin: function (origin, callback) {
