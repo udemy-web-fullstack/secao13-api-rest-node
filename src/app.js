@@ -7,6 +7,7 @@ dotenv.config();
 import './database/index.js';
 
 import cors from 'cors';
+import delay from 'delay';
 import express from 'express';
 import helmet from 'helmet';
 
@@ -51,6 +52,7 @@ class App {
       }),
     );
 
+    this.app.use(delay(2000));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
 
