@@ -7,8 +7,8 @@ dotenv.config();
 import './database/index.js';
 
 import cors from 'cors';
-import delay from 'delay';
 import express from 'express';
+import delay from 'express-delay';
 import helmet from 'helmet';
 
 import alunoRoutes from './routes/alunoRoutes.js';
