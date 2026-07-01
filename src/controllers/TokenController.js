@@ -35,7 +35,14 @@ class TokenController {
         },
       );
 
-      return res.json({ token, user: user.nome, id, email });
+      return res.json({
+        token,
+        user: {
+          id: user.id,
+          nome: user.nome,
+          email: user.email,
+        },
+      });
     } catch (e) {
       console.log('Erro interno no TokenController:', e.message);
       return res.status(400).json({
