@@ -8,7 +8,7 @@ import './database/index.js';
 
 import cors from 'cors';
 import express from 'express';
-import delay from 'express-delay';
+
 import helmet from 'helmet';
 
 import alunoRoutes from './routes/alunoRoutes.js';
@@ -52,7 +52,6 @@ class App {
       }),
     );
 
-    this.app.use(delay(2000));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
 
